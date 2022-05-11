@@ -3,15 +3,23 @@ import AppointmentBanner from '../../Components/AppointmentBanner/AppointmentBan
 import Banner from '../../Components/Banner/Banner';
 import Information from '../../Components/Information/Information';
 import Services from '../../Components/Services/Services';
+import Testimonials from '../../Components/Reviews/Testimonials/Testimonials';
 
 const Home = () => {
     return (
-        <div className='px-12'>
+        <section>
+            <div className='px-12'>
             <Banner />
             <Information />
             <Services />
-            <AppointmentBanner />
-        </div>
+            </div>
+
+            <div>
+            <AppointmentBanner className="px-0 mx-0" /> 
+            <Testimonials />
+            </div>
+
+        </section>
     );
 };
 

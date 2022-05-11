@@ -14,7 +14,7 @@ const AppointmentBanner = () => {
             </div>
 
             <div className='flex-1 px-7 lg:px-0 py-12 text-white'>
-                <h3 className="text-xl text-primary py-4 uppercase text-bold">Appointment</h3>
+                <h3 className="text-xl text-primary py-4 uppercase font-bold">Appointment</h3>
 
                 <h3 className="text-3xl">
                     Make an Appointment <br /> Today</h3>
