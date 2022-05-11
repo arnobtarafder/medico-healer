@@ -1,0 +1,22 @@
+.appointment-banner {
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	height: 420px;
+	background-position: center center;
+}
+
+.appointment-banner img {
+	height: 550px;
+	width: 120%;
+	display: block;
+	bottom: 20%;
+	transform: translateY(-130px);
+}
+
+
+@media (max-width: 777px) {
+	.appointment-banner {
+		height: auto;
+	}
+}

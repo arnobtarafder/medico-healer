@@ -1,7 +1,7 @@
 import React from 'react';
+import AppointmentBanner from '../../Components/AppointmentBanner/AppointmentBanner';
 import Banner from '../../Components/Banner/Banner';
 import Information from '../../Components/Information/Information';
-import MakeAppointmentBanner from '../../Components/MakeAppointmentBanner/MakeAppointmentBanner';
 import Services from '../../Components/Services/Services';
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
             <Banner />
             <Information />
             <Services />
-            <MakeAppointmentBanner />
+            <AppointmentBanner />
         </div>
     );
 };
