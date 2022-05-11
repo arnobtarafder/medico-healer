@@ -4,13 +4,13 @@ import "./Banner.css";
 
 const Banner = () => {
     return (
-        <div class="hero min-h-screen px-12 background-banner-image">
-        <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src={chair} class="max-w-sm rounded-lg shadow-2xl" />
+        <div className="hero min-h-screen px-12 background-banner-image">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <img src={chair} className="max-w-sm rounded-lg shadow-2xl" />
           <div>
-            <h1 class="text-5xl font-bold">Your New Smile Starts Here</h1>
-            <p class="py-6">							Book video call appointments with the country's most qualified specialist doctors, in their private chambers.</p>
-            <button class="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary">Appoinment Now</button>
+            <h1 className="text-5xl font-bold">Your New Smile Starts Here</h1>
+            <p className="py-6">							Book video call appointments with the country's most qualified specialist doctors, in their private chambers.</p>
+            <button className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary">Appoinment Now</button>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import Navbar from './Pages/Shared/Navbar';
 
 function App() {
   return (
-    <div>
+    <div className='pb-12'>
 
       <Navbar />
 
