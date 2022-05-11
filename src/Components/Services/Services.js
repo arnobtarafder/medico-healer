@@ -28,7 +28,7 @@ const Services = () => {
     ]
 
     return (
-        <div className='my-32'>
+        <section className='my-32'>
             <div className="text-center">
                 <h3 className='text-primary text-xl font-bold uppercase'>Our Services</h3>
                 <h3 className='text-4xl'>Services We Provide</h3>
@@ -42,7 +42,7 @@ const Services = () => {
                     ></Service>)
                 }
             </div>
-        </div>
+        </section>
     );
 };
 
