@@ -31,7 +31,7 @@ const Testimonials = () => {
     ]
 
     return (
-        <section className='my-32'>
+        <section className='my-32 px-12'>
             <div className='flex justify-between'>
                 <div className=''>
                     <h4 className="text-xl text-primary font-bold">Testimonials</h4>
