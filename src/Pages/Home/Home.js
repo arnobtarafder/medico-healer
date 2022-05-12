@@ -1,10 +1,9 @@
 import React from 'react';
-import AppointmentBanner from '../../Components/AppointmentBanner/AppointmentBanner';
+import HomeAppointmentBanner from '../../Components/HomeAppointmentBanner/HomeAppointmentBanner';
 import Banner from '../../Components/Banner/Banner';
 import Information from '../../Components/Information/Information';
 import Services from '../../Components/Services/Services';
 import Testimonials from '../../Components/Reviews/Testimonials/Testimonials';
-import Footer from '../../Components/Footer/Footer';
 import ContactForm from '../../Components/ContactForm/ContactForm';
 
 const Home = () => {
@@ -17,7 +16,7 @@ const Home = () => {
             </div>
 
             <div>
-                <AppointmentBanner className="px-0 mx-0" />
+                <HomeAppointmentBanner className="px-0 mx-0" />
                 <Testimonials />
                 <ContactForm />
             </div>
