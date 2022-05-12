@@ -1,7 +1,7 @@
 import React from 'react';
 import doctor from "../../assets/images/doctor.png"
 import appointment from "../../assets/images/appointment.png"
-import PrimaryButton from '../../Pages/Shared/PrimaryButton';
+import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 import "./HomeAppointmentBanner.css";
 
 const AppointmentBanner = () => {

@@ -4,7 +4,7 @@ import Footer from './Components/Footer/Footer';
 import Appointment from './Pages/Appointment/Appointment';
 import Login from './Pages/Authentication/Login/Login';
 import Home from './Pages/Home/Home';
-import Navbar from './Pages/Shared/Navbar';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (

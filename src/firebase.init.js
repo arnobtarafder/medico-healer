@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
+  apiKey: "AIzaSyDXpQ9B5ro7Yljdr34Q48uBAuyl44IrPNU",
+  authDomain: "medico-healer.firebaseapp.com",
+  projectId: "medico-healer",
+  storageBucket: "medico-healer.appspot.com",
+  messagingSenderId: "1033748900753",
+  appId: "1:1033748900753:web:dd7b8a562fd393e74a4830",
 };
 
 // Initialize Firebase

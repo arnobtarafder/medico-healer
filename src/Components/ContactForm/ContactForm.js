@@ -1,6 +1,6 @@
 import React from 'react';
 import contact from "../../assets/images/login.png"
-import PrimaryButton from '../../Pages/Shared/PrimaryButton';
+import PrimaryButton from '../../Components/PrimaryButton/PrimaryButton';
 
 const ContactForm = () => {
     return (
