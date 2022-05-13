@@ -1,13 +1,22 @@
 import React from 'react';
-import {useSignInWithGoogle} from "react-firebase-hooks/auth";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { useForm } from "react-hook-form";
 
 const SignIn = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-    if(googleUser){
+
+    if (googleUser) {
         console.log(googleUser);
     }
+
+    const onSubmit = data => {
+        console.log(data)
+    };
+
+
 
     return (
         <div className='flex h-screen justify-center items-center'>
@@ -15,11 +24,47 @@ const SignIn = () => {
                 <div class="card-body">
                     <h2 class="text-center text-2xl font-bold">Login</h2>
 
+                    <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: "Email Address is required"
+                                    },
+                                    pattern: {
+                                        value: /^[A-Za-z]+$/i,
+                                        message: "Provide a valid Email Address"
+                                    }
+                                })}
+                                />
+                            <label class="label">
+                                {errors.email?.type === "required" &&
+                                 <span className='label-text-alt text-red-500'>{errors.email?.message}</span>}
+
+                                {errors.email?.type === "pattern" &&
+                                 <span className='label-text-alt text-red-500'>{errors.email?.message}</span>}
+                            </label>
+                        </div>
+
+
+                        <input {...register("exampleRequired", { required: true })} />
+
+                        <input type="submit" />
+                    </form>
+
                     <div className="divider">Or</div>
 
-                    <button 
-                    onClick={() => signInWithGoogle()}
-                    className='btn btn-outline'>
+                    <button
+                        onClick={() => signInWithGoogle()}
+                        className='btn btn-outline'>
                         Continue With Google</button>
                 </div>
             </div>
