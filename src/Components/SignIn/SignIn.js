@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-fireba
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from '../Loading/Loading';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -16,7 +17,7 @@ const SignIn = () => {
 
     let signInError;
 
-    if(1===1) {
+    if(googleLoading || loading) {
         return <Loading />
     }
 
@@ -24,7 +25,7 @@ const SignIn = () => {
         signInError = <small className='text-red-500'>{googleError?.message || error?.message}</small>
     }
 
-    if (googleUser) {
+    if (googleUser || user) {
         console.log(googleUser);
     }
 
@@ -91,6 +92,8 @@ const SignIn = () => {
                                     }
                                 })}
                                 />
+
+
                             <label class="label">
                                 {errors.password?.type === "required" &&
                                  <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
@@ -104,6 +107,8 @@ const SignIn = () => {
 
                         <input className='btn w-full max-w-xs font-bold hover:tracking-widest text-white' type="submit" value="Login" />
                     </form>
+
+                    <small className='text-center'>New to Medico Healer? <Link className='text-secondary' to="/registration">Create New Account</Link></small>
 
                     <div className="divider">Or</div>
 

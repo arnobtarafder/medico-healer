@@ -26,10 +26,10 @@ figure { border-radius: 100%; width: 2em; height: 2em; position: absolute; margi
 .dot.four { animation: dot4 4s linear infinite; opacity: 0; transform: rotate(180deg); }
 
 @keyframes colours {
-  25% { background: #fcb201; }
-  50% { background: #019757; }
-  75% { background: #226ad9; }
-  100% { background: #cd3820; }
+  25% { background: #b49243; }
+  50% { background: #1f704c; }
+  75% { background: #4d6891; }
+  100% { background: #79433b; }
 }
 
 @keyframes dot1 { 
