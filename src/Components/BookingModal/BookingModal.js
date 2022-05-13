@@ -30,8 +30,8 @@ const BookingModal = ({ date, treatment }) => {
 
                         <select name='slot' className="select select-bordered w-full max-w-xs">
                             {
-                                slots.map(slot => <option
-                                    key={slot._id}
+                                slots.map((slot, index) => <option
+                                    key={index}
                                     value={slot}
                                 >
                                     {slot}
