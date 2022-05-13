@@ -3,7 +3,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-fireba
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from '../Loading/Loading';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -12,21 +12,25 @@ const SignIn = () => {
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);    
+    ] = useSignInWithEmailAndPassword(auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
     let signInError;
 
-    if(googleLoading || loading) {
+    if (googleLoading || loading) {
         return <Loading />
     }
 
-    if(googleError || error) {
+    if (googleError || error) {
         signInError = <small className='text-red-500'>{googleError?.message || error?.message}</small>
     }
 
     if (googleUser || user) {
-        console.log(googleUser);
+        navigate(from, { replace: true });
     }
 
     const onSubmit = data => {
@@ -62,13 +66,13 @@ const SignIn = () => {
                                         message: "Provide a valid Email Address"
                                     }
                                 })}
-                                />
+                            />
                             <label class="label">
                                 {errors.email?.type === "required" &&
-                                 <span className='label-text-alt text-red-500'>{errors.email?.message}</span>}
+                                    <span className='label-text-alt text-red-500'>{errors.email?.message}</span>}
 
                                 {errors.email?.type === "pattern" &&
-                                 <span className='label-text-alt text-red-500'>{errors.email?.message}</span>}
+                                    <span className='label-text-alt text-red-500'>{errors.email?.message}</span>}
                             </label>
                         </div>
 
@@ -91,15 +95,15 @@ const SignIn = () => {
                                         message: "Password must be 6 characters or longer"
                                     }
                                 })}
-                                />
+                            />
 
 
                             <label class="label">
                                 {errors.password?.type === "required" &&
-                                 <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
+                                    <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
 
                                 {errors.password?.type === "minLength" &&
-                                 <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
+                                    <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
                             </label>
                         </div>
 
