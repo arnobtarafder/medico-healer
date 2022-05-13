@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
@@ -21,16 +21,18 @@ const SignIn = () => {
 
     let signInError;
 
+    useEffect(() => {
+        if (googleUser || user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, googleUser, from, navigate])
+
     if (googleLoading || loading) {
         return <Loading />
     }
 
     if (googleError || error) {
         signInError = <small className='text-red-500'>{googleError?.message || error?.message}</small>
-    }
-
-    if (googleUser || user) {
-        navigate(from, { replace: true });
     }
 
     const onSubmit = data => {
