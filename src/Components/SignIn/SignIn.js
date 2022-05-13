@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 const SignIn = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
 
     if (googleUser) {
@@ -78,14 +78,13 @@ const SignIn = () => {
                                 {errors.password?.type === "required" &&
                                  <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
 
-                                {errors.password?.type === "pattern" &&
+                                {errors.password?.type === "minLength" &&
                                  <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
                             </label>
                         </div>
 
-                        <input {...register("exampleRequired", { required: true })} />
 
-                        <input type="submit" />
+                        <input className='btn w-full max-w-xs font-bold hover:tracking-widest text-white' type="submit" value="Login" />
                     </form>
 
                     <div className="divider">Or</div>
