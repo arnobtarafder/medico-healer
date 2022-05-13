@@ -13,9 +13,14 @@ const SignIn = () => {
       ] = useSignInWithEmailAndPassword(auth);    
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    let signInError;
 
     if(googleLoading || loading) {
         return <button class="btn loading">loading</button>
+    }
+
+    if(googleError || error) {
+        signInError = <small className='text-red-500'>{googleError?.message || error?.message}</small>
     }
 
     if (googleUser) {
@@ -24,6 +29,7 @@ const SignIn = () => {
 
     const onSubmit = data => {
         console.log(data);
+        signInWithEmailAndPassword(data.email, data.password);
     };
 
 
@@ -93,6 +99,7 @@ const SignIn = () => {
                             </label>
                         </div>
 
+                        {signInError}
 
                         <input className='btn w-full max-w-xs font-bold hover:tracking-widest text-white' type="submit" value="Login" />
                     </form>
