@@ -40,7 +40,7 @@ const SignIn = () => {
                                         message: "Email Address is required"
                                     },
                                     pattern: {
-                                        value: /^[A-Za-z]+$/i,
+                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                                         message: "Provide a valid Email Address"
                                     }
                                 })}
@@ -54,6 +54,34 @@ const SignIn = () => {
                             </label>
                         </div>
 
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Password</span>
+                            </label>
+                            <input
+                                type="password"
+                                placeholder="Your Password"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("password", {
+                                    required: {
+                                        value: true,
+                                        message: "Password is required"
+                                    },
+                                    minLength: {
+                                        value: 6,
+                                        message: "Password must be 6 characters or longer"
+                                    }
+                                })}
+                                />
+                            <label class="label">
+                                {errors.password?.type === "required" &&
+                                 <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
+
+                                {errors.password?.type === "pattern" &&
+                                 <span className='label-text-alt text-red-500'>{errors.password?.message}</span>}
+                            </label>
+                        </div>
 
                         <input {...register("exampleRequired", { required: true })} />
 
