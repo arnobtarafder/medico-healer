@@ -1,16 +1,41 @@
-import { format } from 'date-fns';
-import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { format } from 'date-fns';
+import { toast } from 'react-toastify';
+import React from 'react';
 import auth from '../../firebase.init';
 
-const BookingModal = ({ date, treatment }) => {
+const BookingModal = ({ date, treatment, setTreatment }) => {
     const { _id, name, slots } = treatment;
     const [user, loading, error] = useAuthState(auth);
+    const formattedDate = format(date, "PP")
 
     const handleBooking = event => {
         event.preventDefault();
         const slot = event.target.slot.value;
+        const phone = event.target.phone.value
         console.log(slot, _id, name);
+        const booking = {
+            treatmentId: _id,
+            treatment: name,
+            date: formattedDate,
+            slot,
+            name: user.email,
+            patientName: user.displayName,
+            phone
+        }
+
+        fetch("http://localhost:5000/booking", {
+            method: "POST" ,
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(booking)
+        })
+        .then(res => res.json())
+        .then(data => {
+            // TO CLOSE THE MODAL
+            setTreatment(null)
+        })
     }
 
     return (

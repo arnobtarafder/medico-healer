@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Footer from './Components/Footer/Footer';
 import Appointment from './Pages/Appointment/Appointment';
@@ -7,6 +8,7 @@ import Home from './Pages/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import Registration from './Pages/Authentication/Login/Registration';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
       </Routes>
 
       <Footer />
+
+      <ToastContainer />
 
     </div>
   );
