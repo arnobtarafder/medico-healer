@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import React from 'react';
 import auth from '../../firebase.init';
 
-const BookingModal = ({ date, treatment, setTreatment }) => {
+const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     const { _id, name, slots } = treatment;
     const [user, loading, error] = useAuthState(auth);
     const formattedDate = format(date, "PP")
@@ -44,6 +44,7 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
                     theme: "colored"
                   })
             }
+            refetch();
             // TO CLOSE THE MODAL
             setTreatment(null)
         })

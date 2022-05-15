@@ -10,6 +10,9 @@ import Registration from './Pages/Authentication/Login/Registration';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
+
 function App() {
   return (
     <div className='pb-0 max-w-7xl mx-auto'>
