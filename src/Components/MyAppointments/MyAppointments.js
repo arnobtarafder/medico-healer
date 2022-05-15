@@ -16,7 +16,7 @@ const MyAppointments = () => {
     }, [user])
 
     return (
-        <div className='px-6 shadow-xl'>
+        <div className='mx-6 shadow-xl'>
             <h2>My Appointments: {appointments.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
