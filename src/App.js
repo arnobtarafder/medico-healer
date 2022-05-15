@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Registration from './Pages/Authentication/Login/Registration';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 
@@ -28,6 +29,12 @@ function App() {
         <Route path='/appointment' element={
           <RequireAuth>
             <Appointment />
+          </RequireAuth>}>
+        </Route>
+        
+         <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard />
           </RequireAuth>}>
         </Route>
         
