@@ -28,7 +28,7 @@ const SignIn = () => {
         if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, googleUser, from, navigate])
+    }, [user, googleUser, from, navigate, token])
 
     if (googleLoading || loading) {
         return <Loading />
