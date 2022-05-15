@@ -3,18 +3,25 @@ import { format } from 'date-fns';
 import { toast } from 'react-toastify';
 import React from 'react';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     const { _id, name, slots } = treatment;
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const formattedDate = format(date, "PP")
+
+
+    if (loading) {
+        return <Loading />
+    }
+
 
     const handleBooking = event => {
         event.preventDefault();
         const slot = event.target.slot.value;
         const phone = event.target.phone.value
         console.log(slot, _id, name);
-   
+
         const booking = {
             treatmentId: _id,
             treatment: name,
@@ -22,33 +29,33 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
             slot,
             patient: user?.email,
             patientName: user.displayName,
-            phone: event.target.phone.value
+            phone
         }
 
         fetch("http://localhost:5000/booking", {
-            method: "POST" ,
+            method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(booking)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data.success);
-            if(data.success) {
-                toast.success(`Appointment is set, ${formattedDate} at ${slot}`, {
-                    theme: "colored"
-                  })
-            }
-            else{
-                toast.error(`Already have an Appointment on, ${data.booking?.date} at ${slot}`, {
-                    theme: "colored"
-                  })
-            }
-            refetch();
-            // TO CLOSE THE MODAL
-            setTreatment(null)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.success);
+                if (data.success) {
+                    toast.success(`Appointment is set, ${formattedDate} at ${slot}`, {
+                        theme: "colored"
+                    })
+                }
+                else {
+                    toast.error(`Already have an Appointment on, ${data.booking?.date} at ${slot}`, {
+                        theme: "colored"
+                    })
+                }
+                refetch();
+                // TO CLOSE THE MODAL
+                setTreatment(null)
+            })
     }
 
     return (
