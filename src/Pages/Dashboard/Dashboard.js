@@ -16,6 +16,8 @@ const Dashboard = () => {
                     <ul className="menu p-4 overflow-y-auto w-48 bg-gradient-to-t from-secondary to-primary text-white font-medium">
                         <li><Link to="/dashboard">My Appointments</Link></li>
                         <li><Link to="/dashboard/reviews">My Reviews</Link></li>
+                        <li><Link to="/dashboard/history">My History</Link></li>
+                        <li><Link to="/dashboard/users">All Users</Link></li>
                     </ul>
 
                 </div>

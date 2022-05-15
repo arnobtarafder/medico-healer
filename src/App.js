@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyAppointments from './Components/MyAppointments/MyAppointments';
 import MyReviews from './Components/MyReviews/MyReviews';
+import Users from './Components/Users/Users';
 
 
 
@@ -40,6 +41,8 @@ function App() {
           </RequireAuth>}>
             <Route index element={<MyAppointments />}></Route>
             <Route path="reviews" element={<MyReviews />}></Route>
+            <Route path="reviews" element={<MyReviews />}></Route>
+            <Route path="users" element={<Users />}></Route>
         </Route>
         
       </Routes>
