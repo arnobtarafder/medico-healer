@@ -3,7 +3,7 @@ import AppointmentBanner from '../../Components/AppointmentBanner/AppointmentBan
 import AvailableAppointments from '../../Components/AvailableAppointments/AvailableAppointments';
 
 const Appointment = () => {
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState(new Date());
 
     return (
         <div>

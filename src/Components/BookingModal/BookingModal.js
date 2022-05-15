@@ -14,14 +14,15 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
         const slot = event.target.slot.value;
         const phone = event.target.phone.value
         console.log(slot, _id, name);
+   
         const booking = {
             treatmentId: _id,
             treatment: name,
             date: formattedDate,
             slot,
-            email: user?.email,
-            patient: user?.displayName,
-            phone
+            patient: user?.email,
+            patientName: user.displayName,
+            phone: event.target.phone.value
         }
 
         fetch("http://localhost:5000/booking", {
