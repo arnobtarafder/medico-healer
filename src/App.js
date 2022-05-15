@@ -10,6 +10,8 @@ import Registration from './Pages/Authentication/Login/Registration';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import MyAppointments from './Components/MyAppointments/MyAppointments';
+import MyReviews from './Components/MyReviews/MyReviews';
 
 
 
@@ -36,6 +38,8 @@ function App() {
           <RequireAuth>
             <Dashboard />
           </RequireAuth>}>
+            <Route index element={<MyAppointments />}></Route>
+            <Route path="reviews" element={<MyReviews />}></Route>
         </Route>
         
       </Routes>
