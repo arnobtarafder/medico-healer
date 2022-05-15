@@ -4,7 +4,7 @@ import Loading from "../Loading/Loading"
 import UserRow from '../UserRow/UserRow';
 
 const Users = () => {
-    const {data: users, isLoading} = useQuery("users", () => fetch("http://localhost:5000/users", {
+    const {data: users, isLoading, refetch} = useQuery("users", () => fetch("http://localhost:5000/users", {
         method: "GET",
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -33,6 +33,7 @@ const Users = () => {
                        index={index}
                        key={user._id}
                        user={user}
+                       refetch={refetch}
                        ></UserRow>)
                    }
                 </tbody>
