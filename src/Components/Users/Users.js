@@ -23,8 +23,9 @@ const Users = () => {
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Name</th>
                         <th>Email</th>
+                        <th>Make Admin</th>
+                        <th>Manage User</th>
                     </tr>
                 </thead>
                 <tbody>
