@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyAppointments from './Components/MyAppointments/MyAppointments';
 import MyReviews from './Components/MyReviews/MyReviews';
 import Users from './Components/Users/Users';
+import RequireAdmin from './Components/RequireAdmin/RequireAdmin';
 
 
 
@@ -42,12 +43,12 @@ function App() {
             <Route index element={<MyAppointments />}></Route>
             <Route path="reviews" element={<MyReviews />}></Route>
             <Route path="reviews" element={<MyReviews />}></Route>
-            <Route path="users" element={<Users />}></Route>
+            <Route path="users" element={<RequireAdmin><Users /></RequireAdmin>}></Route>
         </Route>
         
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
 
       <ToastContainer />
 
