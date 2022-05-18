@@ -14,6 +14,7 @@ import MyAppointments from './Components/MyAppointments/MyAppointments';
 import MyReviews from './Components/MyReviews/MyReviews';
 import Users from './Components/Users/Users';
 import RequireAdmin from './Components/RequireAdmin/RequireAdmin';
+import AddDoctor from './Components/AddDoctor/AddDoctor';
 
 
 
@@ -44,6 +45,7 @@ function App() {
             <Route path="reviews" element={<MyReviews />}></Route>
             <Route path="reviews" element={<MyReviews />}></Route>
             <Route path="users" element={<RequireAdmin><Users /></RequireAdmin>}></Route>
+            <Route path="addDoctor" element={<RequireAdmin><AddDoctor /></RequireAdmin>}></Route>
         </Route>
         
       </Routes>
