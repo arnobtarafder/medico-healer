@@ -9,7 +9,7 @@ const AddDoctor = () => {
 
     const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/services').then(res => res.json()))
 
-    const imageStorageKey='4295ac4d47b569312bea67b440cdbdbb';
+    const imageStorageKey='fce22a5eefc89a21245b23e388097d21';
 
     /**
      * 3 ways to store images
@@ -21,6 +21,7 @@ const AddDoctor = () => {
     */
 
     const onSubmit = async data => {
+        console.log("form submitted")
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
