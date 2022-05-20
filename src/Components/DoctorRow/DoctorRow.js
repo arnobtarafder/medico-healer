@@ -1,16 +1,22 @@
 import React from 'react';
 
-const DoctorRow = ({doctor, index}) => {
-    const {name, specialty} = doctor;
+const DoctorRow = ({ doctor, index }) => {
+    const { name, specialty, img } = doctor;
 
     return (
-            <tr>
-                <td>{index + 1}</td>
-                <td>Avatar</td>
-                <td>{name}</td>
-                <td>{specialty}</td>
-                <td><button className='btn btn-xs btn-error'>Delete</button></td>
-            </tr>
+        <tr>
+            <td>{index + 1}</td>
+            <td>
+                <div className="avatar">
+                    <div className="w-16 rounded-xl">
+                        <img src={img} alt={name} />
+                    </div>
+                </div>
+            </td>
+            <td>{name}</td>
+            <td>{specialty}</td>
+            <td><button className='btn btn-xs btn-error'>Delete</button></td>
+        </tr>
     );
 };
 
