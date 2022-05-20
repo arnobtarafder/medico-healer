@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
 
 const ManageDoctors = () => {
-    const {data: doctors, isLoading} = useQuery("doctors", () => fetch("", {
+    const {data: doctors, isLoading} = useQuery("doctors", () => fetch("http://localhost:5000/doctors", {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
 
