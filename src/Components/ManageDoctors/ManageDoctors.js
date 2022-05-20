@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../Loading/Loading';
 
 const ManageDoctors = () => {
     const {data: doctors, isLoading} = useQuery("doctors", () => fetch("", {
@@ -9,6 +10,9 @@ const ManageDoctors = () => {
         }
     }).then(res => res.json()));
 
+    if(isLoading) {
+        return <Loading />
+    }
 
     return (
         <div>
