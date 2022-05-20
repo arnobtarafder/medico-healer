@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyAppointments = () => {
@@ -10,7 +10,7 @@ const MyAppointments = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
- 
+
     useEffect(() => {
         if (user) {
             fetch(`http://localhost:5000/booking?patient=${user.email}`, {
@@ -49,6 +49,7 @@ const MyAppointments = () => {
                             <th>Date</th>
                             <th>Time</th>
                             <th>Treatment</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,6 +60,16 @@ const MyAppointments = () => {
                                 <td>{a.date}</td>
                                 <td>{a.slot}</td>
                                 <td>{a.treatment}</td>
+                                <td>
+                                    {(a.price && !a.paid)
+                                        && <Link to={`/dashboard/payment/${a._id}`}>
+                                            <button className='btn btn-xs btn-sucess'>Payment</button>
+                                        </Link>}
+                                    {(a.price && a.paid)
+                                        &&
+                                        <span className='text-success'>Paid</span>
+                                    }
+                                </td>
                             </tr>)
                         }
 
