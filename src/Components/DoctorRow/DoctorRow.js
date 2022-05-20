@@ -1,22 +1,40 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const DoctorRow = ({ doctor, index, refetch }) => {
     const { name, specialty, img, email } = doctor;
 
     const handleDelete = (email) => {
-        fetch(`http://localhost:5000/doctors/${email}`, {
-            method: "DELETE"
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.deleteCount) {
-                toast.success(`Doctor: ${name} is deleted`)
-                refetch();
+        Swal.fire({
+            text: "Are you sure you want to delete this?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delete it!",
+        }).then((result) => {
+            if (result.value) {
+                fetch(`http://localhost:5000/doctors/${email}`, {
+                    method: "DELETE",
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.acknowledged || data.deleteCount) {
+                            toast.success(`Doctor: ${name} is deleted`)
+                            refetch();
+                        }
+                    });
             }
-        })
-    }
+        });
+    };
+
+
 
     return (
         <tr>

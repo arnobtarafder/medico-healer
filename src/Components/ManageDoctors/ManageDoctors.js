@@ -32,7 +32,7 @@ const ManageDoctors = () => {
                     </thead>
                     <tbody>
                         {
-                            doctors.map((doctor, index) => <DoctorRow
+                            doctors?.map((doctor, index) => <DoctorRow
                             key={doctor._id}
                             doctor={doctor}
                             index={index}

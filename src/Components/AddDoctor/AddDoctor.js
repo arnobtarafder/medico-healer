@@ -51,7 +51,7 @@ const AddDoctor = () => {
                 })
                 .then(res =>res.json())
                 .then(inserted =>{
-                    if(inserted.insertedId){
+                    if(inserted?.insertedId){
                         toast.success('Doctor added successfully')
                         reset();
                     }
