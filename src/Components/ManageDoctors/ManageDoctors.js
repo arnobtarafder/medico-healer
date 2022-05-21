@@ -4,7 +4,7 @@ import DoctorRow from '../DoctorRow/DoctorRow';
 import Loading from '../Loading/Loading';
 
 const ManageDoctors = () => {
-    const { data: doctors, isLoading, refetch } = useQuery("doctors", () => fetch("http://localhost:5000/doctors", {
+    const { data: doctors, isLoading, refetch } = useQuery("doctors", () => fetch("https://medico-healer.herokuapp.com/doctors", {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
 

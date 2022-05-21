@@ -15,7 +15,7 @@ const DoctorRow = ({ doctor, index, refetch }) => {
             confirmButtonText: "Yes, Delete it!",
         }).then((result) => {
             if (result.value) {
-                fetch(`http://localhost:5000/doctors/${email}`, {
+                fetch(`https://medico-healer.herokuapp.com/doctors/${email}`, {
                     method: "DELETE",
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
