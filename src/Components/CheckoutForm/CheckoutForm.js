@@ -7,8 +7,10 @@ const CheckoutForm = ({ appointment }) => {
     const [cardError, setCardError] = useState("");
     const [clientSecret, setClientSecret] = useState("");
     const [success, setSuccess] = useState("");
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
 
-    const { price } = appointment;
+    const { _id, price, patient, patientName } = appointment;
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -50,6 +52,8 @@ const CheckoutForm = ({ appointment }) => {
         });
 
         setCardError(error?.message || "");
+        setSuccess("");
+        setProcessing(true);
 
         // confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
